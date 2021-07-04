@@ -7,9 +7,9 @@ const PORT = 4000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect(
-  'mongodb://127.0.0.1:27017/productsdb',
-  { useNewUrlParser: true, useUnifiedTopology: true }
+mongoose.connect('mongodb://127.0.0.1:27017/productsdb',{ 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true }
 );
 
 // bodyparser setup
