@@ -8,7 +8,7 @@ const PORT = 4000;
 // mongoose 
 mongoose.Promise = global.Promise
 mongoose.connect(
-  "mongodb+srv://root:<password>@pluralsight.qdvfe.mongodb.net/admin",
+  "mongodb://localhost:27017/productsdb",
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
