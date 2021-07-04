@@ -1,17 +1,20 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
 
 const app = express();
 const PORT = 4000;
 
+// mongoose connection
+mongoose.connect(
+  "mongodb+srv://root:<password>@pluralsight.qdvfe.mongodb.net/admin",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
+
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 
-app.get('/', (req, res) =>
-    res.send(`Store server running on port ${PORT}`)
-);
+app.get("/", (req, res) => res.send(`Store server running on port ${PORT}`));
 
-app.listen(PORT, () => 
-    console.log(`Your server is running on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));
