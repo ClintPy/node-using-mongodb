@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 const app = express();
 const PORT = 4000;
 
-// mongoose connection
+// mongoose 
+mongoose.Promise = global.Promise
 mongoose.connect(
   "mongodb+srv://root:<password>@pluralsight.qdvfe.mongodb.net/admin",
   { useNewUrlParser: true, useUnifiedTopology: true }
