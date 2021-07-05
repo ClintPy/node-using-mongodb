@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
-import { productSchema } from './models/model';
+import mongoose from "mongoose";
+import { ProductSchema } from "../models/model";
 
-const Product = mongoose.model('Products', productSchema)
+const Product = mongoose.model("Product", ProductSchema);
 
-export function addnewProduct(){
-    let newProduct = new Product(req.body)
-    newProduct.save()
-        .then(item => {
-            res.send("item saved to database")
-        })
-        .catch(err => {
-            res.status(400).send("unable to save to database")
-        })
-}
+export const addnewProduct = (req, res) => {
+  let newProduct = new Product(req.body);
+
+  newProduct.save((err, Product) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(Product);
+  });
+};
